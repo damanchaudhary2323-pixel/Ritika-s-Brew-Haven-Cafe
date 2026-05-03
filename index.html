@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ritika's Brew Haven Cafe — Premium coffee, bold flavors, no boring brews.">
+    <title>Ritika's Brew Haven Cafe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ============ PRELOADER ============ -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+        <div class="preloader__cup">
+            <div class="preloader__steam"></div>
+            <div class="preloader__steam preloader__steam--2"></div>
+        </div>
+        <p class="preloader__text">BREWING...</p>
+    </div>
+
+    <!-- ============ SCROLL PROGRESS ============ -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- ============ NAVBAR ============ -->
+    <header class="navbar" id="navbar">
+        <div class="navbar__inner">
+            <a href="#home" class="navbar__logo" aria-label="Ritika's Brew Haven Home">RITIKA'S <span>BREW</span></a>
+            <button class="navbar__hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar__nav" id="navMenu">
+                <a href="#home" class="navbar__link">Home</a>
+                <a href="#menu" class="navbar__link">Menu</a>
+                <a href="#about" class="navbar__link">About</a>
+                <a href="#gallery" class="navbar__link">Gallery</a>
+                <a href="#reviews" class="navbar__link">Reviews</a>
+                <a href="#contact" class="navbar__link">Contact</a>
+                <a href="#menu" class="navbar__link navbar__link--cta">ORDER NOW</a>
+            </nav>
+            <button class="navbar__cart" id="cartToggle" aria-label="Open cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="9" cy="21" r="1" />
+                    <circle cx="20" cy="21" r="1" />
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                </svg>
+                <span class="navbar__cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============ CART DRAWER ============ -->
+    <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+        <div class="cart-drawer__header">
+            <h2>YOUR ORDER</h2>
+            <button class="cart-drawer__close" id="cartClose" aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-drawer__items" id="cartItems"></div>
+        <div class="cart-drawer__footer">
+            <div class="cart-drawer__total">TOTAL: ₹<span id="cartTotal">0.00</span></div>
+            <button class="btn btn--primary btn--full">CHECKOUT NOW</button>
+        </div>
+    </aside>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <main>
+        <!-- ============ HERO ============ -->
+        <section class="hero" id="home">
+            <img class="hero__bg-img"
+                src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1920&h=1080&fit=crop" alt=""
+                aria-hidden="true">
+            <div class="hero__bg-shapes" aria-hidden="true">
+                <div class="hero__circle hero__circle--1"></div>
+                <div class="hero__circle hero__circle--2"></div>
+            </div>
+            <div class="hero__content reveal">
+                <h1 class="hero__title">FUEL YOUR<br><span>OBSESSION.</span></h1>
+                <p class="hero__sub">Premium hand-crafted coffee &amp; bold bites — brewed for those who refuse to
+                    settle.</p>
+                <div class="hero__ctas">
+                    <a href="#menu" class="btn btn--primary">ORDER NOW</a>
+                    <a href="#contact" class="btn btn--outline">BOOK A TABLE</a>
+                </div>
+            </div>
+            <div class="hero__visual reveal">
+                <div class="coffee-cup" aria-hidden="true">
+                    <div class="coffee-cup__body">
+                        <span class="coffee-cup__label">R'B</span>
+                    </div>
+                    <div class="coffee-cup__handle"></div>
+                    <div class="coffee-cup__saucer"></div>
+                    <div class="coffee-cup__steam coffee-cup__steam--1"></div>
+                    <div class="coffee-cup__steam coffee-cup__steam--2"></div>
+                    <div class="coffee-cup__steam coffee-cup__steam--3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ MENU ============ -->
+        <section class="menu-section section" id="menu">
+            <div class="container">
+                <h2 class="section__title reveal">THE ROSTER.</h2>
+                <p class="section__sub reveal">No filler. Every item hits different.</p>
+
+                <div class="menu-section__filters reveal">
+                    <button class="filter-btn active" data-filter="all">ALL</button>
+                    <button class="filter-btn" data-filter="coffee">COFFEE</button>
+                    <button class="filter-btn" data-filter="cold">COLD BREW</button>
+                    <button class="filter-btn" data-filter="snacks">SNACKS</button>
+                    <button class="filter-btn" data-filter="desserts">DESSERTS</button>
+                </div>
+
+                <div class="menu-section__grid" id="menuGrid">
+                    <!-- Coffee -->
+                    <div class="menu-card reveal" data-category="coffee">
+                        <img class="menu-card__img" src="images/espresso.png" alt="Death Wish Espresso" loading="lazy">
+                        <div class="menu-card__body">
+                            <h3>DEATH WISH ESPRESSO</h3>
+                            <p>Double-shot of pure adrenaline. Not for the faint-hearted.</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">₹199</span>
+                                <button class="btn btn--sm btn--outline add-to-cart" data-id="1"
+                                    data-name="Death Wish Espresso" data-price="199"
+                                    aria-label="Add Death Wish Espresso to cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-card reveal" data-category="coffee">
+                        <img class="menu-card__img" src="images/mocha.png" alt="Midnight Mocha" loading="lazy">
+                        <div class="menu-card__body">
+                            <h3>MIDNIGHT MOCHA</h3>
+                            <p>Dark chocolate meets darker roast. Liquid obsession.</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">₹249</span>
+                                <button class="btn btn--sm btn--outline add-to-cart" data-id="2"
+                                    data-name="Midnight Mocha" data-price="249"
+                                    aria-label="Add Midnight Mocha to cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-card reveal" data-category="coffee">
+                        <img class="menu-card__img" src="images/latte.png" alt="Velvet Latte" loading="lazy">
+                        <div class="menu-card__body">
+                            <h3>VELVET LATTE</h3>
+                            <p>Smooth, creamy, dangerously addictive.</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">₹229</span>
+                                <button class="btn btn--sm btn--outline add-to-cart" data-id="3"
+                                    data-name="Velvet Latte" data-price="229"
+                                    aria-label="Add Velvet Latte to cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Cold Brew -->
+                    <div class="menu-card reveal" data-category="cold">
+                        <img class="menu-card__img" src="images/nitro.png" alt="Nitro Cold Fury" loading="lazy">
+                        <div class="menu-card__body">
+                            <h3>NITRO COLD FURY</h3>
+                            <p>Nitrogen-infused, silky, zero mercy.</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">₹299</span>
+                                <button class="btn btn--sm btn--outline add-to-cart" data-id="4"
+                                    data-name="Nitro Cold Fury" data-price="299"
+                                    aria-label="Add Nitro Cold Fury to cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-card reveal" data-category="cold">
+                        <img class="menu-card__img" src="images/iced_caramel.png" alt="Iced Caramel Blitz"
+                            loading="lazy">
+                        <div class="menu-card__body">
+                            <h3>ICED CARAMEL BLITZ</h3>
+                            <p>Sweet, cold, absolutely savage.</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">₹269</span>
+                                <button class="btn btn--sm btn--outline add-to-cart" data-id="5"
+                                    data-name="Iced Caramel Blitz" data-price="269"
+                                    aria-label="Add Iced Caramel Blitz to cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Snacks -->
+                    <div class="menu-card reveal" data-category="snacks">
+                        <img class="menu-card__img" src="images/croissant.png" alt="Loaded Croissant" loading="lazy">
+                        <div class="menu-card__body">
+                            <h3>LOADED CROISSANT</h3>
+                            <p>Butter-blasted, stuffed with attitude.</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">₹179</span>
+                                <button class="btn btn--sm btn--outline add-to-cart" data-id="6"
+                                    data-name="Loaded Croissant" data-price="179"
+                                    aria-label="Add Loaded Croissant to cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-card reveal" data-category="snacks">
+                        <img class="menu-card__img"
+                            src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600&h=400&fit=crop"
+                            alt="Power Panini" loading="lazy">
+                        <div class="menu-card__body">
+                            <h3>POWER PANINI</h3>
+                            <p>Grilled. Stacked. Built different.</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">₹349</span>
+                                <button class="btn btn--sm btn--outline add-to-cart" data-id="7"
+                                    data-name="Power Panini" data-price="349"
+                                    aria-label="Add Power Panini to cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Desserts -->
+                    <div class="menu-card reveal" data-category="desserts">
+                        <img class="menu-card__img"
+                            src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&h=400&fit=crop"
+                            alt="Brutal Brownie" loading="lazy">
+                        <div class="menu-card__body">
+                            <h3>BRUTAL BROWNIE</h3>
+                            <p>Thick, dense, unapologetically chocolate.</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">₹149</span>
+                                <button class="btn btn--sm btn--outline add-to-cart" data-id="8"
+                                    data-name="Brutal Brownie" data-price="149"
+                                    aria-label="Add Brutal Brownie to cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-card reveal" data-category="desserts">
+                        <img class="menu-card__img"
+                            src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&h=400&fit=crop"
+                            alt="Tiramisu Knockout" loading="lazy">
+                        <div class="menu-card__body">
+                            <h3>TIRAMISU KNOCKOUT</h3>
+                            <p>Espresso-soaked perfection. Mic drop.</p>
+                            <div class="menu-card__footer">
+                                <span class="menu-card__price">₹249</span>
+                                <button class="btn btn--sm btn--outline add-to-cart" data-id="9"
+                                    data-name="Tiramisu Knockout" data-price="249"
+                                    aria-label="Add Tiramisu Knockout to cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ABOUT ============ -->
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="about__grid">
+                    <div class="about__text reveal">
+                        <h2 class="section__title">WE DON'T<br>DO WEAK.</h2>
+                        <p>Ritika's Brew Haven isn't your average quiet-corner cafe. We roast hard, brew fresh, and pour
+                            with purpose. Every bean is sourced with intent. Every cup is a statement.</p>
+                        <p>If you want watered-down bean juice and elevator music, go next door. If you want the real
+                            deal — <strong>take a seat.</strong></p>
+                        <a href="#menu" class="btn btn--primary" style="margin-top:1.5rem">TRY THE SIGNATURE BREW</a>
+                    </div>
+                    <div class="about__image reveal">
+                        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&h=700&fit=crop"
+                            alt="Barista crafting coffee at Ritika's Brew Haven" loading="lazy">
+                    </div>
+                    <div class="about__stats reveal">
+                        <div class="stat-card">
+                            <span class="stat-card__number counter" data-target="15000">0</span>
+                            <span class="stat-card__label">BREWS SERVED</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-card__number counter" data-target="4200">0</span>
+                            <span class="stat-card__label">5★ REVIEWS</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-card__number counter" data-target="365">0</span>
+                            <span class="stat-card__label">DAILY FRESH BAKES</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ GALLERY ============ -->
+        <section class="gallery section" id="gallery">
+            <div class="container">
+                <h2 class="section__title reveal">THE VIBE.</h2>
+                <p class="section__sub reveal">Step inside. Feel the energy.</p>
+                <div class="gallery__grid reveal">
+                    <div class="gallery__item gallery__item--tall"
+                        style="background-image:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&h=1000&fit=crop');background-size:cover;background-position:center"
+                        tabindex="0" aria-label="Cafe Interior">
+                        <span class="gallery__overlay">CAFE INTERIOR</span>
+                    </div>
+                    <div class="gallery__item"
+                        style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop');background-size:cover;background-position:center"
+                        tabindex="0" aria-label="The Brew Bar">
+                        <span class="gallery__overlay">THE BREW BAR</span>
+                    </div>
+                    <div class="gallery__item"
+                        style="background-image:url('https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=800&h=600&fit=crop');background-size:cover;background-position:center"
+                        tabindex="0" aria-label="Late Night Vibes">
+                        <span class="gallery__overlay">LATE NIGHT</span>
+                    </div>
+                    <div class="gallery__item gallery__item--wide"
+                        style="background-image:url('https://images.unsplash.com/photo-1534778101976-62847782c213?w=1000&h=600&fit=crop');background-size:cover;background-position:center"
+                        tabindex="0" aria-label="Latte Art">
+                        <span class="gallery__overlay">LATTE ART</span>
+                    </div>
+                    <div class="gallery__item"
+                        style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=600&fit=crop');background-size:cover;background-position:center"
+                        tabindex="0" aria-label="Fresh Pastries">
+                        <span class="gallery__overlay">FRESH PASTRIES</span>
+                    </div>
+                    <div class="gallery__item"
+                        style="background-image:url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&h=600&fit=crop');background-size:cover;background-position:center"
+                        tabindex="0" aria-label="Coffee Beans">
+                        <span class="gallery__overlay">THE BEANS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox" role="dialog" aria-label="Image preview" aria-hidden="true">
+            <button class="lightbox__close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
+            <div class="lightbox__content" id="lightboxContent"></div>
+        </div>
+
+        <!-- ============ REVIEWS ============ -->
+        <section class="reviews section" id="reviews">
+            <div class="container">
+                <h2 class="section__title reveal">WHAT THEY SAY.</h2>
+                <div class="reviews__slider reveal">
+                    <div class="reviews__track" id="reviewTrack">
+                        <div class="review-slide">
+                            <p class="review-slide__text">"Aggressive? Yes. Best coffee in the city? Absolutely. I don't
+                                go anywhere else now."</p>
+                            <p class="review-slide__author">— JORDAN D.</p>
+                            <div class="review-slide__stars">★★★★★</div>
+                        </div>
+                        <div class="review-slide">
+                            <p class="review-slide__text">"Their Midnight Mocha woke up parts of my brain I didn't know
+                                existed. Life-changing."</p>
+                            <p class="review-slide__author">— SARAH M.</p>
+                            <div class="review-slide__stars">★★★★★</div>
+                        </div>
+                        <div class="review-slide">
+                            <p class="review-slide__text">"Came for the aesthetics, stayed for the Brutal Brownie.
+                                Unmatched vibe and flavor."</p>
+                            <p class="review-slide__author">— ALEX K.</p>
+                            <div class="review-slide__stars">★★★★★</div>
+                        </div>
+                        <div class="review-slide">
+                            <p class="review-slide__text">"I've traveled 30+ countries tasting coffee. Ritika's stands
+                                toe-to-toe with the best."</p>
+                            <p class="review-slide__author">— PRIYA R.</p>
+                            <div class="review-slide__stars">★★★★★</div>
+                        </div>
+                        <div class="review-slide">
+                            <p class="review-slide__text">"The Nitro Cold Fury is liquid dominance. I order two every
+                                single morning."</p>
+                            <p class="review-slide__author">— MIKE T.</p>
+                            <div class="review-slide__stars">★★★★★</div>
+                        </div>
+                        <div class="review-slide">
+                            <p class="review-slide__text">"Finally, a cafe that matches my energy. Bold flavors, bold
+                                people, zero compromise."</p>
+                            <p class="review-slide__author">— NINA S.</p>
+                            <div class="review-slide__stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <div class="reviews__controls">
+                        <button class="reviews__arrow" id="prevSlide" aria-label="Previous review">&#8592;</button>
+                        <div class="reviews__dots" id="reviewDots"></div>
+                        <button class="reviews__arrow" id="nextSlide" aria-label="Next review">&#8594;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="contact__grid reveal">
+                    <div class="contact__info">
+                        <h2 class="section__title">HIT US UP.</h2>
+                        <p>Got a question? Want to book? Just wanna say we're awesome? We're listening.</p>
+                        <div class="contact__details">
+                            <div class="contact__detail">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                <span>Geeta University, Naultha, Panipat-Samalkha Road, Panipat, Haryana 132114</span>
+                            </div>
+                            <div class="contact__detail">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                                <span>Open 6 AM – Midnight | Every. Damn. Day.</span>
+                            </div>
+                            <div class="contact__detail">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                                <span>+1 (555) 000-BREW</span>
+                            </div>
+                        </div>
+                        <div class="contact__socials">
+                            <a href="#" class="contact__social" aria-label="Instagram">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                            </a>
+                            <a href="#" class="contact__social" aria-label="Twitter">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="contact__social" aria-label="Facebook">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <form class="contact__form" id="contactForm" novalidate>
+                        <div class="form-group">
+                            <input type="text" id="formName" class="form-group__input" placeholder=" " required>
+                            <label for="formName" class="form-group__label">YOUR NAME</label>
+                            <span class="form-group__error">Name is required.</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="formEmail" class="form-group__input" placeholder=" " required>
+                            <label for="formEmail" class="form-group__label">YOUR EMAIL</label>
+                            <span class="form-group__error">Valid email required.</span>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="formMsg" class="form-group__input form-group__input--textarea" rows="4"
+                                placeholder=" " required></textarea>
+                            <label for="formMsg" class="form-group__label">WHAT'S ON YOUR MIND?</label>
+                            <span class="form-group__error">Message is required.</span>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full">SEND IT</button>
+                        <div class="contact__success" id="formSuccess">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Message secured. We'll be in touch.</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <h3>RITIKA'S <span>BREW HAVEN</span></h3>
+                    <p>Premium coffee for those who demand more. Open daily, no excuses.</p>
+                </div>
+                <div class="footer__links">
+                    <h4>QUICK LINKS</h4>
+                    <a href="#home">Home</a>
+                    <a href="#menu">Menu</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer__newsletter">
+                    <h4>JOIN THE CULT.</h4>
+                    <p>Get exclusive drops and offers straight to your inbox.</p>
+                    <div class="footer__newsletter-form">
+                        <input type="email" placeholder="Your Email" aria-label="Newsletter email">
+                        <button class="btn btn--sm btn--primary">JOIN</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 Ritika's Brew Haven Cafe. No boring allowed.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ BACK TO TOP ============ -->
+    <button class="back-top" id="backTop" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="18 15 12 9 6 15" />
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+
+    <!-- ============ VOICEFLOW CHATBOT ============ -->
+    <script type="text/javascript">
+        (function (d, t) {
+            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            v.onload = function () {
+                window.voiceflow.chat.load({
+                    verify: { projectID: '69e86c02d11c3fa6dfac5b39' },
+                    url: 'https://general-runtime.voiceflow.com',
+                    versionID: 'development'
+                });
+            }
+            v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript";
+            s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+    </script>
+</body>
+
+</html>
